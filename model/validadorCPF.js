@@ -47,7 +47,8 @@ function validaCpf() {
 }
 
 
-   
+   let oi = validaCpf()
+   console.log(oi)
 
 
 
