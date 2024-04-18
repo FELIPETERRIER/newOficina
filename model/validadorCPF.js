@@ -1,5 +1,5 @@
 function validaCpf() {
-    let cpf = '09556938613';
+   
     let multiplicador = 10;       
     
     let acumulador = 0; 
@@ -38,18 +38,12 @@ function validaCpf() {
    }
    else{
     return false
-   }
-
-  
-
-    
+   }   
  
 }
 
 
-   let oi = validaCpf()
-   console.log(oi)
-
+exports.validaCpf = validaCpf;
 
 
 

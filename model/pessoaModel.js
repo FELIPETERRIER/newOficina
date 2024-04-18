@@ -1,4 +1,5 @@
-const db = require('../configs/database')
+const db = require('../configs/database');
+const validaCpf = require('./validadorCPF');
 
 
 const pessoa = {
@@ -15,18 +16,20 @@ const pessoa = {
         }
     },
 
-    savePessoaModel: async(objPessoa) => {
+    savePessoaModel: async(objPessoa,cpf) => {
         try {
             let valores = Object.values(objPessoa);
-          
+            pessoa.validaCpf.validaCpf(cpf);    
 
-            const salvandoPessoa = await db.query('INSERT INTO pessoas(nome,cpf,telefone_celular,telefone_comercial,telefone_residencial,telefone_whatsapp,e_mail,endereco) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id', valores);
+            const salvandoPessoa = await db.query('INSERT INTO pessoas(nome,cpf,telefone_celular,telefone_comercial,telefone_residencial,telefone_whatsapp,e_mail,endereco,cnpj) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING id', valores);
 
             return salvandoPessoa
         } catch (error) {
             throw error
         }
     },
+
+   
     /*validaCpf() {
         let cpf = '09556938613';
         let multiplicador = 10;       
