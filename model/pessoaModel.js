@@ -1,5 +1,5 @@
 const db = require('../configs/database');
-const validaCpf = require('./validadorCPF');
+const validadorCPF = require('./validadorCPF');
 
 
 const pessoa = {
@@ -18,8 +18,7 @@ const pessoa = {
 
     savePessoaModel: async(objPessoa,cpf) => {
         try {
-            let valores = Object.values(objPessoa);
-            pessoa.validaCpf.validaCpf(cpf);    
+            let valores = Object.values(objPessoa);     
 
             const salvandoPessoa = await db.query('INSERT INTO pessoas(nome,cpf,telefone_celular,telefone_comercial,telefone_residencial,telefone_whatsapp,e_mail,endereco,cnpj) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING id', valores);
 
