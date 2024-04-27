@@ -18,7 +18,9 @@ const pessoa = {
 
     savePessoaModel: async(objPessoa,cpf) => {
         try {
-            let valores = Object.values(objPessoa);     
+
+            let valores = Object.values(objPessoa);  
+            //const cpf = req.query.cpf   
 
             const salvandoPessoa = await db.query('INSERT INTO pessoas(nome,cpf,telefone_celular,telefone_comercial,telefone_residencial,telefone_whatsapp,e_mail,endereco,cnpj) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING id', valores);
 
@@ -133,13 +135,13 @@ const pessoa = {
     
         
         
-}
-    /*Falta testar o Delete e put
-    deletePessoaModel: async (cpf) => {
+}*/
+    
+    deletePessoaModel: async (id) => {
         
         try {        
                     
-            const delPessoa  = await db.query(`DELETE from  pessoas WHERE cpf = ${cpf}` );
+            const delPessoa  = await db.query(`DELETE from  pessoas WHERE id = ${id}` );
            
             return delPessoa
             
@@ -149,14 +151,15 @@ const pessoa = {
         }
         
     },
-    
-    putPessoaModel: async (cpf) => {
+    //update tipos_pessoa set funcao = $2 where id = $1 ',putValoresUsuario
+    putPessoaModel: async (id) => {
         
         try {
             
-            let putPessoa = Object.values(cpf); 
+            let putPessoa = Object.values(id); 
                       
-            const putPecaVeiculo  = await db.query(`update (nome,cpf,telefone_celular,telefone_comercial,telefone_residencial,telefone_whatsapp,e_mail,endereco)  set = ($1,$2,$3,$4,$5,$6,$7,$8) where cpf = ${cpf}` ,putPessoa);           
+            const putPecaVeiculo  = await db.query(`update pessoas set(nome,cpf,telefone_celular,telefone_comercial,
+                telefone_residencial,telefone_whatsapp,e_mail,endereco,cnpj) = ($1,$2,$3,$4,$5,$6,$7,$8,$9) where id = $10` ,putPessoa);           
 
             return putPecaVeiculo
             
@@ -165,7 +168,7 @@ const pessoa = {
             throw error;
         }
         
-    }*/
+    }
 
 }
 

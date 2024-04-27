@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3001;
+const port = 3003;
 
 const loginController = require('./controller/loginController');
 const usuariosController = require('./controller/usuariosController');
@@ -42,6 +42,8 @@ app.put('/tipoUsuarios/:id',tipoUsuarioController.putTpUsuario);
 
 app.get('/pessoas',pessoasController.getPessoas);
 app.post('/pessoas',pessoasController.savePessoas);
+app.delete('/pessoas/:id',pessoasController.deleteTpPessoas);
+app.put('/pessoas/:id',pessoasController.putTpPessoa);
 
 
 app.post('/usuarios', usuariosController.postUsuarios);

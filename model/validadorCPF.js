@@ -1,4 +1,4 @@
-function validaCpf() {
+function validaCpf(cpf) {
    
     let multiplicador = 10;       
     
