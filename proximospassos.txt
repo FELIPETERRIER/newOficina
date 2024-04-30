@@ -1,0 +1,20 @@
+próxima sessão
+    felipe
+        eslint
+        prettier
+    fernando
+        husky
+        docker
+
+dar andamento no desenvolvimento do newoficina
+    finalizar mais controllers e models (não precisa ser tudo)
+voltar a usar o jira
+git o tempo todo
+
+próximos passos
+    eslint/prettier/husky funcionando no newoficina 
+        não precisa ser nele todo. vamos deixando débitos técnicos abertos e anotados
+    docker
+    login
+    router
+    middleware
