@@ -18,3 +18,9 @@ próximos passos
     login
     router
     middleware
+
+
+
+Adicionar tempo de servico para a oficina mecanica.:
+Exemplo coloquei meu carro hj e vou ser cobrado por tempo de servico dando a opcao ao cliente a comprar as pecas,mas 
+sendo cobrado pelo horario de tempo de ocupação da vaga.    
