@@ -4,11 +4,16 @@ module.exports = {
       es6: true,
       node: true,
     },
+    // extends: [
+    //   'eslint:recommended',
+    //   'plugin:@typescript-eslint/eslint-recommended',
+    //   'plugin:@typescript-eslint/recommended',
+    //   'plugin:prettier/recommended',
+    // ],
     extends: [
-      'eslint:recommended',
-      'plugin:@typescript-eslint/eslint-recommended',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:prettier/recommended',
+      'plugin:@typescript-eslint/recommended', 
+      'prettier/@typescript-eslint', 
+      'plugin:prettier/recommended'
     ],
     globals: {
       Atomics: 'readonly',
@@ -16,7 +21,7 @@ module.exports = {
     },
     parser: '@typescript-eslint/parser',
     parserOptions: {
-      ecmaVersion: 11,
+      ecmaVersion: 2020,
       sourceType: 'module',
     },
     plugins: ['@typescript-eslint'],
