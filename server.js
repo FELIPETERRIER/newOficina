@@ -56,15 +56,14 @@ app.put('/servico/:id',servicosController.putTpServico);
 
 
 
-//app.post('/salvarPecas',salvarPecasController.postSalvarPecas);
+
 
 
 app.post('/usuarios', usuariosController.postUsuarios);
 app.get('/usuarios/:id', usuariosController.getUsuarios);
 
-app.get('/servicos', servicosController.getServicos);
 app.get('/', loginController.getLogin);
-//app.post('/salvarServicos',salvarServicosController.postSalvarServicos);
+
 
 
 app.listen(port)
