@@ -49,7 +49,7 @@ const tipoUsuario = {
         try {
             
             let putValoresUsuario = Object.values(id);            
-            const putTipoUsuario  = await db.query('update tipos_pessoa set funcao = $2 where id = $1 ',putValoresUsuario);           
+            const putTipoUsuario  = await db.query('update tipos_pessoa set (funcao,cpf) = ($2,$3 )where id = $1 ',putValoresUsuario);           
 
             return putTipoUsuario
             

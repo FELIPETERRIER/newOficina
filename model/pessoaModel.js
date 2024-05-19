@@ -1,5 +1,5 @@
 const db = require('../configs/database');
-const validadorCPF = require('./validadorCPF');
+//const validadorCPF = require('./validadorCPF');
 
 
 const pessoa = {

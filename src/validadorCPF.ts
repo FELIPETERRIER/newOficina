@@ -1,10 +1,14 @@
-function validaCpf(cpf) {
+
+
+
+/*function validaCpf( cpf:number) {
+    
    
     let multiplicador = 10;       
     
     let acumulador = 0; 
    
-    for(let i = 0;i <cpf.length-2;i++){      
+    for(let i = 0;i < cpf.length-2;i++){      
        
         acumulador = acumulador  + cpf[i]* multiplicador--;        
         
@@ -44,7 +48,7 @@ function validaCpf(cpf) {
 
 
 exports.validaCpf = validaCpf;
-
+*/
 
 
 
