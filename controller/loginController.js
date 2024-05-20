@@ -78,14 +78,4 @@ const putMarca = async (req, res) => {
 
 
 
-    module.exports = { getLogin}
-    let entUser = "09556938613";
-    let entFuncao = "gerente";
-    let b = resultadoUsers;
-
-
-    if(b === entUser && entFuncao === b){
-        console.log("certo")
-    }else{
-        console.log("errado")
-    }
+module.exports = { getLogin}

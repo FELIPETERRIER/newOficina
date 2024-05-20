@@ -1,12 +1,19 @@
 const db = require('../configs/database');
-//aqui esta o erro
+
 const users = {
-    getLoginModel: async () => {
+    
+    getLoginModel: async (entUser,senha) => {
+
         try {
-            const resultadoUsers = await db.query('select cpf,funcao from public.tipos_pessoa ');           
+            var senhaUser ={"senha":"14"} 
+            console.log(senha)
+            var entUser ={"cpf":"09556938614"}       
+
+            const resultadoUsers = await db.query("select cpf,senha from public.pessoas where cpf ='" + entUser.cpf+"'and senha = '" + senhaUser.senha +"'")
+            
             
             if (resultadoUsers.rowCount == 0) {
-                throw "Nenhuma marca encontrada"
+                throw "Nenhuma pessoa encontrada"
             }
             return resultadoUsers.rows;
         } catch (error) {
@@ -15,7 +22,21 @@ const users = {
         
         }
     
-
+        
+        
+       /* let entFuncao = "gerente";
+        let b = resultadoUsers;
+    
+    
+        if(b === entUser && entFuncao === b){
+            console.log("certo")
+        }else{
+            console.log("errado")
+       }
+    
+    
+       ///Sabemos que a função Users retorna um array como os valores das funçoes e cpfs.
+       Temos que encontrar uma função que percorra o array e identifique as strings iguais. 
 
 
 

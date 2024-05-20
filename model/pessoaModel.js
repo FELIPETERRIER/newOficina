@@ -22,7 +22,8 @@ const pessoa = {
             let valores = Object.values(objPessoa);  
             //const cpf = req.query.cpf   
 
-            const salvandoPessoa = await db.query('INSERT INTO pessoas(nome,cpf,telefone_celular,telefone_comercial,telefone_residencial,telefone_whatsapp,e_mail,endereco,cnpj) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING id', valores);
+            const salvandoPessoa = await db.query
+            ('INSERT INTO pessoas(nome,cpf,telefone_celular,telefone_comercial,telefone_residencial,telefone_whatsapp,e_mail,endereco,cnpj,senha) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING id', valores);
 
             return salvandoPessoa
         } catch (error) {
@@ -159,7 +160,7 @@ const pessoa = {
             let putPessoa = Object.values(id); 
                       
             const putPecaVeiculo  = await db.query(`update pessoas set(nome,cpf,telefone_celular,telefone_comercial,
-                telefone_residencial,telefone_whatsapp,e_mail,endereco,cnpj) = ($1,$2,$3,$4,$5,$6,$7,$8,$9) where id = $10` ,putPessoa);           
+                telefone_residencial,telefone_whatsapp,e_mail,endereco,cnpj,senha) = ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) where id = $11` ,putPessoa);           
 
             return putPecaVeiculo
             
