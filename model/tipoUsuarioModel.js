@@ -17,8 +17,7 @@ const tipoUsuario = {
         
         try {
             let valoresUsuario = Object.values(objUsuario)
-            const addTipoUsuario  = await db.query('INSERT INTO tipos_pessoa(funcao) VALUES ($1) RETURNING id', valoresUsuario);
-           
+            const addTipoUsuario  = await db.query('INSERT INTO tipos_pessoa(funcao) VALUES ($1) RETURNING id', valoresUsuario);          
 
             return addTipoUsuario.rows
             

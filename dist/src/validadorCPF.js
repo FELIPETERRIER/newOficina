@@ -1,4 +1,5 @@
-/*"use strict";
+
+
 function validaCpf(cpf) {
     let multiplicador = 10;
     let acumulador = 0;
@@ -30,4 +31,4 @@ function validaCpf(cpf) {
         return false;
     }
 }
-exports.validaCpf = validaCpf;*/
+exports.validaCpf = validaCpf;
