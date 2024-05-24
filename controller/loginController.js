@@ -1,9 +1,16 @@
 const tpUsuarios = require('../model/loginModel')
 
+
 const postLogin = async (req, res) => {
     try {
-       console.log(req.query)
-        const cpfs = await tpUsuarios.getLoginModel();
+      
+       let cpf = req.body.post.cpf.replaceAll(".","").replaceAll(" - ",""); 
+      
+        let senha = req.body.post.senha;
+      
+       
+        
+        const cpfs = await tpUsuarios.getLoginModel(cpf,senha);
         res.status(200).json(cpfs);
 
     } catch (error) {
