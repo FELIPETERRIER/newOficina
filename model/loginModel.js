@@ -1,13 +1,17 @@
 const db = require('../configs/database');
-
-
-const users = {
-    
+const users = {    
     getLoginModel: async(cpf,senha,funcao) => {  
         try {  
-            const tipoUsuarios =  await db.query("select funcao from tipos_pessoa where funcao ='"+funcao+ "'" );            
-            const resultadoUsers = await db.query("select cpf,senha from public.pessoas where cpf ='" + cpf +"' and senha = '" + senha +"'")          
-        if (tipoUsuarios.rowCount == 0 && resultadoUsers.rowCount == 0) {
+            const sql = "select p.nome,p.cpf,tp.funcao from pessoas p "+
+            "inner join pessoas_tipo_pessoas ptp "+
+                "on ptp.id_pessoa = p.id "+
+            "inner join tipos_pessoa tp "+
+             "   on tp.id = ptp.id_tipo_pessoa "+
+            "where p.cpf ='"+cpf+"' "+
+            "and p.senha = '"+senha+"' "+
+            "and ptp.id_tipo_pessoa = "+Number(funcao)            
+            const resultadoUsers = await db.query(sql)                     
+        if (resultadoUsers.rowCount == 0) {
             throw "Credenciais inválidas"
         }
             return resultadoUsers.rows;

@@ -5,11 +5,10 @@ const postLogin = async (req, res) => {
     try {
         let funcao = req.body.post.typeUser
         let cpf = req.body.post.cpf.replaceAll(".","").replaceAll(" - ","");            
-        let senha = req.body.post.senha;
-       
+        let senha = req.body.post.senha;       
         const cpfOK = await cpfValidado.loginCpf(cpf);  
             if(cpfOK == true){        
-                const cpfs = await tpUsuarios.getLoginModel(funcao,cpf,senha);
+                const cpfs = await tpUsuarios.getLoginModel(cpf,senha,funcao);
                 res.status(200).json(cpfs);
             }else{
                 console.log('Credenciais inválidas')
