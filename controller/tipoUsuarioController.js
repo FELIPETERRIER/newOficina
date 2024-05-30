@@ -1,10 +1,14 @@
-const tpUsuario = require('../model/tipoUsuarioModel')
+const tpUsuario = require('../model/tipoUsuarioModel');
+const select = require('../dist/src/select')
 
 const getTpUsuario = async (req, res) => {
     try {
 
         const todosTpUsuarios = await tpUsuario.getTipoUsuarioModel();
         res.status(200).json(todosTpUsuarios);
+        const selectOptions = await select.selectOption()
+        
+       
 
     } catch (error) {
         console.log(error);
