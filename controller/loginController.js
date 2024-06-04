@@ -5,7 +5,8 @@ const postLogin = async (req, res) => {
     try {
         let funcao = req.body.post.typeUser
         let cpf = req.body.post.cpf.replaceAll(".","").replaceAll(" - ","");            
-        let senha = req.body.post.senha;       
+        let senha = req.body.post.senha;   
+        console.log(req.body)    
         const cpfOK = await cpfValidado.loginCpf(cpf);  
             if(cpfOK == true){        
                 const cpfs = await tpUsuarios.getLoginModel(cpf,senha,funcao);

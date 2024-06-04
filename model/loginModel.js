@@ -9,12 +9,15 @@ const users = {
              "   on tp.id = ptp.id_tipo_pessoa "+
             "where p.cpf ='"+cpf+"' "+
             "and p.senha = '"+senha+"' "+
-            "and ptp.id_tipo_pessoa = "+Number(funcao)            
-            const resultadoUsers = await db.query(sql)                     
+            "and ptp.id_tipo_pessoa = "+parseInt(funcao)            
+            const resultadoUsers = await db.query(sql)
+              
+                            
         if (resultadoUsers.rowCount == 0) {
             throw "Credenciais inválidas"
         }
-            return resultadoUsers.rows;
+            console.log(resultadoUsers.rows)
+                return resultadoUsers.rows;
         } catch (error) {
             throw error;
         }
