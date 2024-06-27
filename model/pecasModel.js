@@ -31,8 +31,7 @@ const pecas = {
     },
     deletePecaModel: async (id) => {
         
-        try {
-            
+        try {           
                     
             const delPecaVeiculo  = await db.query(`DELETE from  pecas WHERE id = ${id}` );
            

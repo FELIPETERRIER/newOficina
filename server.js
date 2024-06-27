@@ -5,13 +5,13 @@ const port = 3001;
 
 
 
-app.use((req,res,next)=>{
-    res.header("Access-Control-Allow-Origin","http://localhost:3000")
+/*app.use((req,res,next)=>{
+    res.header("Access-Control-Allow-Origin","http://localhost:3001")
     res.header("Access-Control-Allow-Methods",['GET', 'PUT', 'POST','DELETE'])
     res.header("Access-Control-Allow-Headers",'Content-Type')
     app.use(cors())
     next()
-})
+})*/
 
 
 const loginController = require('./controller/loginController');
@@ -78,4 +78,7 @@ app.post('/login', loginController.postLogin);
 
 
 
-app.listen(port)
+app.listen(port,()=>{
+    console.log("servidor rodando na porta " +port)
+})
+
