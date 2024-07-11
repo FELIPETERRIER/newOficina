@@ -1,11 +1,11 @@
-const tpUsuario = require('../model/tipoUsuarioModel');
+const funcaoUsuario = require('../model/funcoesModel');
 
 
-const getTpUsuario = async (req, res) => {
+const getFuncaoUsuario = async (req, res) => {
     try {
 
-        const todosTpUsuarios = await tpUsuario.getTipoUsuarioModel();
-        res.status(200).json(todosTpUsuarios);
+        const todasFuncoesUsuarios = await funcaoUsuario. getFuncaoUsuario();
+        res.status(200).json(todasFuncoesUsuarios);
              
 
     } catch (error) {
@@ -17,14 +17,14 @@ const getTpUsuario = async (req, res) => {
 
     }
 }
-const saveTpUsuario = async (req, res) => {
-    const usuario = { ...req.body }
+const saveFuncaoUsuario = async (req, res) => {
+    const funcao = { ...req.body }
     try {
 
-        const novoUsuario = await tpUsuario.saveTipoUsuarioModel(usuario);
+        const novaFuncao = await funcaoUsuario.saveFuncaoUsuario(funcao);
         res.status(200).json(
             {
-                dados: novoUsuario
+                dados: novaFuncao
             }
         );
 
@@ -37,14 +37,14 @@ const saveTpUsuario = async (req, res) => {
 
     }
 }
-const delTpUsuario = async (req, res) => {
-    const deleteUsuario = { ...req.params }
+const delFuncaoUsuario = async (req, res) => {
+    const deletaFuncao = { ...req.params }
     try {
 
-        const delUsuario = await tpUsuario.deleteTipoUsuarioModel(deleteUsuario);
+        const delFuncao = await funcaoUsuario. deleteFuncaoUsuario(deletaFuncao);
         res.status(200).json(
             {
-                dados: delUsuario
+                dados: delFuncao
             }
         );
 
@@ -57,16 +57,17 @@ const delTpUsuario = async (req, res) => {
 
     };
 }
-const putTpUsuario = async (req, res) => {
-    const updateUsuario = { ...req.body}
+const putFuncaoUsuario = async (req, res) => {
+    const updateFuncao = { ...req.body}
 
     try {
 
-            const putUsuario = await tpUsuario.putTipoUsuarioModel(updateUsuario);
+            const putFuncao = await funcaoUsuario.putFuncaoUsuario(updateFuncao);
             res.status(200).json(
                 {
-                    dados: putUsuario
+                    dados: putFuncao
                 }
+      
             );
 
     } catch (error) {
@@ -81,4 +82,4 @@ const putTpUsuario = async (req, res) => {
 
 
 
-    module.exports = { getTpUsuario, saveTpUsuario, delTpUsuario, putTpUsuario }
+    module.exports = { getFuncaoUsuario, saveFuncaoUsuario, delFuncaoUsuario, putFuncaoUsuario }

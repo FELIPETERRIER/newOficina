@@ -16,7 +16,7 @@ const port = 3001;
 
 const loginController = require('./controller/loginController');
 const usuariosController = require('./controller/usuariosController');
-const tipoUsuarioController  = require('./controller/tipoUsuarioController');
+const funcoesController  = require('./controller/funcoesController');
 const pecasController = require('./controller/pecasController');
 const servicosController = require('./controller/servicosController');
 const carrosController = require('./controller/carrosController');
@@ -52,11 +52,11 @@ app.delete('/pessoas/:id',pessoasController.deleteTpPessoas);
 app.put('/pessoas/:id',pessoasController.putTpPessoa);
 
 
-//tipos Usuarios
-app.get('/tipoUsuarios',tipoUsuarioController.getTpUsuario);
-app.post('/tipoUsuarios',tipoUsuarioController.saveTpUsuario);
-app.delete('/tipoUsuarios/:id',tipoUsuarioController.delTpUsuario);
-app.put('/tipoUsuarios/:id',tipoUsuarioController.putTpUsuario);
+//funcoes
+app.get('/funcao',funcoesController.getFuncaoUsuario);
+app.post('/funcao',funcoesController.saveFuncaoUsuario);
+app.delete('/funcao/:id',funcoesController.delFuncaoUsuario);
+app.put('/funcao/:id',funcoesController.putFuncaoUsuario);
 
 //Serviços
 app.get('/servico',servicosController.getServicos);

@@ -1,15 +1,20 @@
 const tpUsuarios = require('../model/loginModel');
-const cpfValidado = require('../dist/src/validadorCPF')
+const cpfValidado = require('../dist/src/validadorCPF');
+const jwt = require('jsonwebtoken');
+
 
 const postLogin = async (req, res) => {
     try {
-        let funcao = req.body.post.typeUser
-        let cpf = req.body.post.cpf.replaceAll(".","").replaceAll(" - ","");            
-        let senha = req.body.post.senha;   
-        console.log(req.body)    
+        
+        let cpf = req.body.cpf.replaceAll(".","").replaceAll(" - ","");            
+        let senha = req.body.senha;  
+        let funcao = req.body.funcao;
+        
+        
         const cpfOK = await cpfValidado.loginCpf(cpf);  
             if(cpfOK == true){        
                 const cpfs = await tpUsuarios.getLoginModel(cpf,senha,funcao);
+                jwt.sign({id:req.body.id})
                 res.status(200).json(cpfs);
             }else{
                 console.log('Credenciais inválidas')
