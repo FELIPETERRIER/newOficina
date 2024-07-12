@@ -20,8 +20,9 @@ const funcoesController  = require('./controller/funcoesController');
 const pecasController = require('./controller/pecasController');
 const servicosController = require('./controller/servicosController');
 const carrosController = require('./controller/carrosController');
-const marcasController = require('./controller/marcasController')
+const marcasController = require('./controller/marcasController');
 const pessoasController = require('./controller/pessoasController');
+const relacaoController = require('./controller/relacaoController')
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -58,6 +59,11 @@ app.post('/funcao',funcoesController.saveFuncaoUsuario);
 app.delete('/funcao/:id',funcoesController.delFuncaoUsuario);
 app.put('/funcao/:id',funcoesController.putFuncaoUsuario);
 
+//rota que salva relacao pessoa/funcao
+
+app.post('/realacao',relacaoController.saveRelacao);
+app.delete('/relacao',relacaoController.deleteRelacao);
+
 //Serviços
 app.get('/servico',servicosController.getServicos);
 app.post('/servico',servicosController.saveServico);
@@ -71,8 +77,8 @@ app.put('/servico/:id',servicosController.putTpServico);
 
 
 
-app.post('/usuarios', usuariosController.postUsuarios);
-app.get('/usuarios/:id', usuariosController.getUsuarios);
+/*app.post('/usuarios', usuariosController.postUsuarios);
+app.get('/usuarios/:id', usuariosController.getUsuarios);*/
 
 app.post('/login', loginController.postLogin);
 
