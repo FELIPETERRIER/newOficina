@@ -4,23 +4,39 @@ const getPessoas = async (req, res) => {
     try {
 
         const todasPessoas = await pesM.getPessoasModel();
-        res.status(200).json(todasPessoas);
+        return res.status(200).json(todasPessoas);
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({
+        return res.status(500).json({
             codigoErro: 500,
             mensagem: error
         });
 
     }
 }
+const getPessoa = async (req, res) => {
+    try {    
+
+        const pessoa = await pesM.getPessoaModel( req.params.cpf);
+       return res.status(200).json(pessoa);
+
+    } catch (error) {
+        console.log(error);
+       return res.status(500).json({
+            codigoErro: 500,
+            mensagem: error
+        });
+
+    }
+}
+
 const savePessoas = async (req, res) => {
     const pessoa = {...req.body}
     try {
         const result = await pesM.savePessoaModel(pessoa);
 
-        res.status(201).json(
+        return res.status(201).json(
             {
                 dados: result
             }
@@ -28,18 +44,18 @@ const savePessoas = async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({
+        return res.status(500).json({
             codigoErro: 500,
             mensagem: error
         });    }
     
 }
-const deleteTpPessoas = async (req, res) => {
+const deletePessoas = async (req, res) => {
     const deletePessoas = req.params.id
     try {
 
         const delPessoa = await pesM.deletePessoaModel(deletePessoas);
-        res.status(200).json(
+        return res.status(200).json(
             {
                 dados: delPessoa
             }
@@ -47,20 +63,20 @@ const deleteTpPessoas = async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({
+        return res.status(500).json({
             codigoErro: 500,
             mensagem: error
         });
 
     };
 }
-const putTpPessoa = async (req, res) => {
+const putPessoa = async (req, res) => {
     const updatePessoa = { ...req.body}
 
     try {
 
             const putPessoa = await pesM.putPessoaModel(updatePessoa);
-            res.status(200).json(
+            return res.status(200).json(
                 {
                     dados: putPessoa
                 }
@@ -68,11 +84,11 @@ const putTpPessoa = async (req, res) => {
 
     } catch (error) {
             console.log(error);
-            res.status(500).json({
+            return res.status(500).json({
                 codigoErro: 500,
                 mensagem: error
             });
 
     }
 }
-module.exports = {getPessoas, savePessoas,putTpPessoa,deleteTpPessoas}
+module.exports = {getPessoas, savePessoas,putPessoa,deletePessoas,getPessoa}

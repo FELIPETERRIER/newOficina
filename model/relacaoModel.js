@@ -1,20 +1,17 @@
 const db = require('../configs/database');
 
 const relacao = {
-    /*saveRelacaoModel: async(objPessoa,cpf) => {
+    getRelacaoModel: async(funcao) => {
         try {
 
-            let valores = Object.values(objPessoa);  
-            
+            let relFuncao = Object.values(funcao);
+            console.log(relFuncao)            
 
-            const salvandoPessoa = await db.query
-            ('INSERT INTO pessoas_tipo_pessoas()', valores);
-
-            return salvandoPessoa
+        
         } catch (error) {
             throw error
         }
-    },   */ 
+    },  
     deleteRelacaoModel: async (id) => {
         
         try {        

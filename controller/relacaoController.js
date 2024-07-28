@@ -1,6 +1,6 @@
 const pesMR =require('../model/relacaoModel');
 
-/*const saveRelacao = async (req, res) => {
+/*const getRelacao =   async (req, res) => {
     const relacaoFuncao = {...req.body}
     try {
         const result = await pesMR.savePessoaModel(pessoa);
@@ -39,4 +39,4 @@ const deleteRelacao = async (req, res) => {
 
     };
 }
-module.exports = {saveRelacao,deleteRelacao}
+module.exports = {/*saveRelacao,*/deleteRelacao}

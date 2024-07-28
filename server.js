@@ -15,14 +15,13 @@ const port = 3001;
 
 
 const loginController = require('./controller/loginController');
-const usuariosController = require('./controller/usuariosController');
 const funcoesController  = require('./controller/funcoesController');
 const pecasController = require('./controller/pecasController');
 const servicosController = require('./controller/servicosController');
 const carrosController = require('./controller/carrosController');
 const marcasController = require('./controller/marcasController');
 const pessoasController = require('./controller/pessoasController');
-const relacaoController = require('./controller/relacaoController')
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -48,9 +47,11 @@ app.put('/pecas/:id',pecasController.putTpPeca);
 
 //Pessoas
 app.get('/pessoas',pessoasController.getPessoas);
+app.get('/pessoa/:cpf',pessoasController.getPessoa);
 app.post('/pessoas',pessoasController.savePessoas);
-app.delete('/pessoas/:id',pessoasController.deleteTpPessoas);
-app.put('/pessoas/:id',pessoasController.putTpPessoa);
+app.delete('/pessoas/:id',pessoasController.deletePessoas);
+app.put('/pessoas/:id',pessoasController.putPessoa);
+
 
 
 //funcoes
@@ -59,10 +60,7 @@ app.post('/funcao',funcoesController.saveFuncaoUsuario);
 app.delete('/funcao/:id',funcoesController.delFuncaoUsuario);
 app.put('/funcao/:id',funcoesController.putFuncaoUsuario);
 
-//rota que salva relacao pessoa/funcao
 
-app.post('/realacao',relacaoController.saveRelacao);
-app.delete('/relacao',relacaoController.deleteRelacao);
 
 //Serviços
 app.get('/servico',servicosController.getServicos);
