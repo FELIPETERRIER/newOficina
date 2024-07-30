@@ -39,7 +39,7 @@ const pessoa = {
             funcoes = funcoes.split(',')
             const salvandoPessoa = await db.query
             ('INSERT INTO pessoas(nome,cpf,telefone_celular,telefone_comercial,telefone_residencial,telefone_whatsapp,e_mail,endereco,cnpj,senha) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING id', valores);
-            for(i = 0;i < funcoes.length - 1;i++){
+            for(i = 0;i <= funcoes.length - 1;i++){
                 await db.query
                     ('INSERT INTO pessoas_funcoes VALUES ($1,$2)', [salvandoPessoa.rows[0].id,funcoes[i]] );
             }

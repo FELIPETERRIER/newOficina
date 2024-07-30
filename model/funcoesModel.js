@@ -3,7 +3,7 @@ const db = require('../configs/database');
 const funcaoUsuario = {
     getFuncaoUsuario: async () => {
         try {
-            const resultadoFuncaoUsuario  = await db.query('select * from public.funcao');           
+            const resultadoFuncaoUsuario  = await db.query('select * from public.funcoes');           
             
             if (resultadoFuncaoUsuario.rowCount == 0) {
                 throw "Nenhuma pessoa encontrada"

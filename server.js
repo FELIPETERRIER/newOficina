@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const cors = require('cors')
+//const cors = require('cors')
 const port = 3001;
 
 
@@ -27,6 +27,7 @@ dotenv.config();
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
+
 //Carros
 app.get('/carros',carrosController.getTpCarros);
 app.post('/carros',carrosController.saveTpCarros);
@@ -52,15 +53,11 @@ app.post('/pessoas',pessoasController.savePessoas);
 app.delete('/pessoas/:id',pessoasController.deletePessoas);
 app.put('/pessoas/:id',pessoasController.putPessoa);
 
-
-
 //funcoes
 app.get('/funcao',funcoesController.getFuncaoUsuario);
 app.post('/funcao',funcoesController.saveFuncaoUsuario);
 app.delete('/funcao/:id',funcoesController.delFuncaoUsuario);
 app.put('/funcao/:id',funcoesController.putFuncaoUsuario);
-
-
 
 //Serviços
 app.get('/servico',servicosController.getServicos);
@@ -68,20 +65,7 @@ app.post('/servico',servicosController.saveServico);
 app.delete('/servico/:id',servicosController.deleteServicos);
 app.put('/servico/:id',servicosController.putTpServico);
 
-
-
-
-
-
-
-
-/*app.post('/usuarios', usuariosController.postUsuarios);
-app.get('/usuarios/:id', usuariosController.getUsuarios);*/
-
 app.post('/login', loginController.postLogin);
-
-
-
 app.listen(port,()=>{
     console.log("servidor rodando na porta " +port)
 })
